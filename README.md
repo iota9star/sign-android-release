@@ -8,6 +8,10 @@ This action will help you sign an Android `.apk` or `.aab` (Android App Bundle) 
 
 **Required:** The relative directory path in your project where your Android release file will be located
 
+### `fileRegex`
+
+**Required:** Matching your Android release file
+
 ### `signingKeyBase64`
 
 **Required:** The base64 encoded signing key used to sign your app
@@ -37,11 +41,11 @@ Then copy the contents of the `.txt` file to your GH secrets
 
 ## Outputs
 
-### `signedReleaseFile`
+### `signedReleaseFiles`
 
 The path to the signed release file from this action
 
-### ENV: `SIGNED_RELEASE_FILE`
+### ENV: `SIGNED_RELEASE_FILES`
 
 This also set's an environment variable that points to the signed release file
 
@@ -69,5 +73,5 @@ steps:
   - uses: actions/upload-artifact@v2
     with:
       name: Signed app bundle
-      path: ${{steps.sign_app.outputs.signedReleaseFile}}
+      path: ${{steps.sign_app.outputs.signedReleaseFiles}}
 ```
