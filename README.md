@@ -54,13 +54,14 @@ This also set's an environment variable that points to the signed release file
 ```yaml
 steps:
   # ...
-
-  - uses: r0adkll/sign-android-release@v1
+  - 
+  - uses: iota9star/sign-android-release@v1.0.5
     name: Sign app APK
     # ID used to access action output
     id: sign_app
     with:
       releaseDirectory: app/build/outputs/apk/release
+      fileRex: .*apk
       signingKeyBase64: ${{ secrets.SIGNING_KEY }}
       alias: ${{ secrets.ALIAS }}
       keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
