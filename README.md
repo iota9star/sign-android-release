@@ -61,7 +61,7 @@ steps:
     id: sign_app
     with:
       releaseDirectory: app/build/outputs/apk/release
-      fileRex: .*apk
+      fileRegex: .*apk
       signingKeyBase64: ${{ secrets.SIGNING_KEY }}
       alias: ${{ secrets.ALIAS }}
       keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
